@@ -110,7 +110,29 @@ Usually before pushing, if you are working in a team and on the same repo/branch
 
 #### CAVEAT
 
-`git branch --set-upstream origin master` allows to track permanently the branch in which you are with the specified remote/branch: _<u>permits to omit the remote/branch declaration when pushing/pulling: `$ git pull` and `$ git push`</u>_
+`git branch --set-upstream origin master` allows to track the branch in which you are with the specified remote/branch: _<u>permits to omit the remote/branch declaration when pushing/pulling: `$ git pull` and `$ git push`</u>_
 
 
-# MORE TO COME
+### MERGE
+
+This repository has been developed with some basic merge cases between branches:
+
+- merge-conflict
+- merge-master
+- merge-standard
+
+Those three are the branches that we will use to test some merge testing.
+
+> Incorporates changes from the named commits (since the time their histories diverged from the current branch) into the current branch. ([git-scm](http://git-scm.com/docs/git-merge))
+
+In few words it git-merge merges the changes from a branch to another.
+
+While on master branch:
+
+`$ git fetch origin merge-standard:merge-standard` _get the remote branch merge-standard and put it as a local branch with the same name._
+
+`$ git merge merge-standard` _merge merge-standard into the branch i'm on right now_
+
+Merge standard is a simple merge without any sort of conflict, basically it should be painless and a straight forward process.
+
+#### [more to come]
