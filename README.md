@@ -113,7 +113,7 @@ Usually before pushing, if you are working in a team and on the same repo/branch
 `git branch --set-upstream origin master` allows to track the branch in which you are with the specified remote/branch: _<u>permits to omit the remote/branch declaration when pushing/pulling: `$ git pull` and `$ git push`</u>_
 
 
-### MERGE
+### SIMPLE MERGE
 
 This repository has been developed with some basic merge cases between branches:
 
@@ -134,5 +134,51 @@ While on master branch:
 `$ git merge merge-standard` _merge merge-standard into the branch i'm on right now_
 
 Merge standard is a simple merge without any sort of conflict, basically it should be painless and a straight forward process.
+
+### CONFLICT MERGE
+
+Most difficult case, quite often present while working in a large team on complex projects.
+
+While on master branch:
+
+`$ git fetch origin merge-conflict:merge-conflict` _get the remote branch merge-conflict and put it as a local branch with the same name._
+
+`$ git merge merge-conflict` _merge merge-conflict into the branch i'm on right now_
+
+```
+$ git merge merge-conflict                                                                                (master)
+Auto-merging file_3.md
+CONFLICT (content): Merge conflict in file_3.md
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+This is the actual conflict arising, now the problem is how to solve it.
+
+Generally speaking you should use a program like (kdiff3)[http://kdiff3.sourceforge.net/] or similar, but you should able to solve it using your editor:
+
+
+```
+<<<<<<< HEAD
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, __This file will generate the conflict when merged with the `merge-conflict` branch__, sunt in culpa qui officia deserunt mollit anim id est laborum.
+=======
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, __this is the conflict preparation__, sunt in culpa qui officia deserunt mollit anim id est laborum.
+>>>>>>> merge-conflict
+```
+
+What you see is the file `file_3.md` that needs to have its conflict resolved:
+
+- <<<<<<< HEAD _is the portion of the file in conflict before the merge_
+- ======= _it's the delimiter between the two file versions_
+- >>>>>>> merge-conflict _is the portion of the file in conflict present in the branch you're merging with (merge-conflict)_
+
+Let's assume we'd like to have the conflict resolved with the version of the branch `merge-conflict`, what we have to do is delete the portion of the file content between the `<<<<<<< HEAD` and the delimiter `=======`
+
+The result will be:
+
+```
+# This is the third file in your repository
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, __this is the conflict preparation__, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```
 
 #### [more to come]
