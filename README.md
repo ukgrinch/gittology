@@ -167,9 +167,11 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 What you see is the file `file_3.md` that needs to have its conflict resolved:
 
+```
 - <<<<<<< HEAD _is the portion of the file in conflict before the merge_
 - ======= _it's the delimiter between the two file versions_
 - >>>>>>> merge-conflict _is the portion of the file in conflict present in the branch you're merging with (merge-conflict)_
+```
 
 Let's assume we'd like to have the conflict resolved with the version of the branch `merge-conflict`, what we have to do is delete the portion of the file content between the `<<<<<<< HEAD` and the delimiter `=======`
 
@@ -181,4 +183,12 @@ The result will be:
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, __this is the conflict preparation__, sunt in culpa qui officia deserunt mollit anim id est laborum.
 ```
 
-#### [more to come]
+### MASTER MERGE
+
+This a classic case: when developing on a feature/whatever branch for a long time you want to bring it in sync with the master branch that has changed.
+
+`$ git checkout merge-standard` _switch to the merge-standard branch_
+
+`$ git merge master` _merge the master into your current branch_
+
+That's it, you have now incorporated the changes into your branch from the master one.
