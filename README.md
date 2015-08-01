@@ -9,9 +9,17 @@ Out of sheer necessity we needed a way to let other team members, like designers
 
 Ideally we have different meaningful branches that can be used to perform the basic GIT operations, plus it could be used to experience the most basic case of conflict, rebase and squashed merge.
 
-### How
+### Git
 
-`$ git clone https://github.com/Objectway/gittology.git`
+Git is a DVCS aka __Distribuited Version Control System__
+
+> Distributed revision control takes a peer-to-peer approach to version control, as opposed to the client-server approach of centralized systems. Rather than a single, central repository on which clients synchronize, each peer's working copy of the codebase is a complete repository. [WikiPedia](https://en.wikipedia.org/wiki/Distributed_revision_control)
+
+### How to use it
+
+__Fork this repository on GitHub__ top right _Fork_ button.
+
+`$ git clone https://github.com/myGitHubUsername/gittology.git`
 
 ### Repository structure
 
@@ -28,7 +36,6 @@ Any of them cover the most basic set of standard operations, starting from a sim
 Fire up your terminal and `$ cd` in your repository folder, **let's suppose that you've cloned it on your home directory**:
 
 `$ cd ~/gittology`
-
 
 ## Standard operations
 ### CHECKING BRANCHES
