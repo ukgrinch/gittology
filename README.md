@@ -9,6 +9,11 @@ Out of sheer necessity we needed a way to let other team members, like designers
 
 Ideally we have different meaningful branches that can be used to perform the basic GIT operations, plus it could be used to experience the most basic case of conflict, rebase and squashed merge.
 
+
+### Git cheat sheet
+
+A very interesting __cheat sheet__ is available at __[GitHub (git-cheat-sheet)](https://github.com/arslanbilal/git-cheat-sheet)__, it's a __must read__ to have a better idea of what are the commands used in this short guide.
+
 ### Git
 
 Git is a DVCS aka __Distribuited Version Control System__
